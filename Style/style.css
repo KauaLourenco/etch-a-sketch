@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #181715;
+    --header-color: #080705;
+    --font-color: #cecec6;
+    --secondary-color: #d64dbb;
+    --hover-color: #81116b;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    font-size: 1.6rem;
+
+    overflow: hidden;
+}
+
+/* Header */
+
+header {
+    width: 100%;
+    padding: 2rem 3rem;
+
+    background-color: var(--header-color);
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.site-title {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    color: var(--secondary-color);
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.options button,
+.size button {
+    padding: 1rem;
+
+    background-color: transparent;
+    border: none;
+    border-radius: 1rem;
+}
+.options button:hover,
+.size button:hover {
+    background-color: var(--bg-color);
+}
+
+.options img,
+.size img {
+    width: 3.5rem;
+}
+
+.info {
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
+    border: 1px solid var(--font-color);
+    text-align: center;
+
+    display: inline-block;
+    cursor: pointer;
+}
+.info:hover {
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+/* Menus */
+
+.size-menu,
+.mode-menu {
+    width: 100%;
+    padding: 2rem 4rem 4rem;
+    position: absolute;
+    bottom: -20rem;
+    left: 0;
+    
+    background-color: var(--header-color);
+    border-top: 1rem solid var(--secondary-color);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mode-menu p,
+.size-menu p {
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.mode-menu div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mode-menu label {
+    padding-left: 3rem;
+    position: relative;
+}
+.mode-menu label:hover {
+    cursor: pointer;
+}
+.mode-menu label::before {
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    left: 0;
+
+    background-color: var(--bg-color);
+    border-radius: 50%;
+}
+
+input[type="checkbox"] {
+    width: 2rem;
+    height: 2rem;
+    z-index: 1;
+
+    display: none;
+}
+
+input[type="checkbox"]:hover ~ label::before {
+    background-color: #2e2e2d;
+}
+input[type="checkbox"]:checked ~ label::before {
+    box-sizing: border-box;
+
+    background-color: var(--secondary-color);
+    border: 4px solid var(--bg-color);
+}
+
+.size-menu {
+    align-items: center;
+}
+
+#size-range {
+    width: 100%;
+}
+#size-range:hover {
+    cursor: pointer;
+}
+
+/* Grid */
+
+main {
+    width: 100%;
+    padding: 4rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid {
+    width: 90%;
+    height: 60vh;
+    margin-bottom: 2rem;
+    
+    background-color: rgb(199, 199, 199);
+    border: 1.5rem solid var(--header-color);
+}
+
+/* Alert box */
+
+.alert {
+    width: 70%;
+    padding: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: var(--header-color);
+    border-radius: 1rem;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.alert-btns {
+    display: flex;
+    gap: 2rem;
+}
+
+.alert-btns button {
+    width: 6rem;
+    padding: .5rem;
+
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+    border: none;
+}
+
+.alert-btns button:hover {
+    background-color: var(--hover-color);
+}
