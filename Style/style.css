@@ -139,7 +139,7 @@ header {
     border-radius: 50%;
 }
 
-input[type="checkbox"] {
+input[type="radio"] {
     width: 2rem;
     height: 2rem;
     z-index: 1;
@@ -147,10 +147,10 @@ input[type="checkbox"] {
     display: none;
 }
 
-input[type="checkbox"]:hover ~ label::before {
+input[type="radio"]:hover ~ label::before {
     background-color: #2e2e2d;
 }
-input[type="checkbox"]:checked ~ label::before {
+input[type="radio"]:checked ~ label::before {
     box-sizing: border-box;
 
     background-color: var(--secondary-color);

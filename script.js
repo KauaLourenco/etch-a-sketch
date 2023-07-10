@@ -109,11 +109,33 @@ main.onmouseup = () => (mouseDown = false);
 function changeColor(e) {
     if (e.type === 'mouseover' && !mouseDown) {
         return;
-    } else if (eraserFunction === 'on') {
+    }
+    else if (eraserFunction === 'on') {
         e.target.style.backgroundColor = 'white';
-    } else if (fillFunction === 'on') {
+    }
+    else if (fillFunction === 'on') {
         fillGrid();
-    } else {
+    }
+    else if (darkMode.checked) {
+        let bgColor = e.target.style.backgroundColor;
+        let alpha = bgColor.slice(-4, -1);
+
+        if (alpha === ', 0') {
+            e.target.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+        } else if (alpha < 1) {
+            e.target.style.backgroundColor = `rgba(0, 0, 0, ${+alpha + 0.1})`;
+        } else {
+            e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+        };
+    }
+    else if (rainbowMode.checked) {
+        let red = Math.trunc(Math.random() * 256);
+        let green = Math.trunc(Math.random() * 256);
+        let blue = Math.trunc(Math.random() * 256);
+
+        e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+    else {
         e.target.style.backgroundColor = 'black';
     };
 };
