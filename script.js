@@ -15,6 +15,8 @@ const rainbowMode = document.querySelector('#rainbow');
 
 const main = document.querySelector('main');
 const grid = document.querySelector('.grid');
+const gridLines = document.querySelector('#grid-lines');
+let lines = 'on';
 
 // Menu animations
 
@@ -71,6 +73,13 @@ function createGridItems() {
         gridItem.classList.add('gridItem');
         gridItem.style.backgroundColor = 'white';
         gridItem.style.flexBasis = flexBasisValue;
+
+        if (lines === 'on') {
+            gridItem.style.border = '1px solid black';
+        } else {
+            gridItem.style.border = 'medium none';
+        };
+
         gridItem.addEventListener('mousedown', changeColor);
         gridItem.addEventListener('mouseover', changeColor);
         grid.appendChild(gridItem);
@@ -187,4 +196,18 @@ clearBtn.addEventListener('click', () => {
 
     fillBtn.style.backgroundColor = 'transparent';
     eraserBtn.style.backgroundColor = 'transparent';
+});
+
+// Grid lines
+
+gridLines.addEventListener('click', () => {
+    for (let i = 0; i <= sizeRange.value ** 2 - 1; i++) {
+        if (grid.children[i].style.border === 'medium none') {
+            grid.children[i].style.border = '1px solid black';
+            lines = 'on';
+        } else {
+            grid.children[i].style.border = 'medium none';
+            lines = 'off';
+        };
+    };
 });
