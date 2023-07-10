@@ -19,17 +19,19 @@ const grid = document.querySelector('.grid');
 const gridLines = document.querySelector('#grid-lines');
 let lines = 'on';
 
+// Prevent dragging
+
+document.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+});
+
 // Menu animations
 
 let options = document.querySelectorAll('button');
 
 for (let option of options) {
     option.addEventListener('click', () => {
-        if (option.style.backgroundColor === 'var(--bg-color)') {
-            option.style.backgroundColor = 'transparent';
-        } else {
-            option.style.backgroundColor = 'var(--bg-color)';
-        }
+        option.classList.toggle('active');
     });
 };
 
@@ -39,8 +41,8 @@ window.addEventListener('click', function (e) {
     if (target === header || target === main || target === grid) {
         sizeMenu.style.bottom = '-20rem';
         modeMenu.style.bottom = '-20rem';
-        sizeBtn.style.backgroundColor = 'transparent';
-        modeBtn.style.backgroundColor = 'transparent';
+        sizeBtn.classList.remove('active');
+        modeBtn.classList.remove('active');
     };
 });
 
@@ -49,7 +51,7 @@ sizeBtn.addEventListener('click', () => {
         sizeMenu.style.bottom = '-20rem';
     } else {
         modeMenu.style.bottom = '-20rem';
-        modeBtn.style.backgroundColor = 'transparent';
+        modeBtn.classList.remove('active');
         sizeMenu.style.bottom = '0px';
     }
 });
@@ -59,7 +61,7 @@ modeBtn.addEventListener('click', () => {
         modeMenu.style.bottom = '-20rem';
     } else {
         sizeMenu.style.bottom = '-20rem';
-        sizeBtn.style.backgroundColor = 'transparent';
+        sizeBtn.classList.remove('active');
         modeMenu.style.bottom = '0px';
     }
 });
@@ -74,9 +76,10 @@ function createGridItems() {
         gridItem.classList.add('gridItem');
         gridItem.style.backgroundColor = 'rgb(255, 255, 255)';
         gridItem.style.flexBasis = flexBasisValue;
+        gridItem.setAttribute('draggable', 'false');
 
         if (lines === 'on') {
-            gridItem.style.border = '1px solid black';
+            gridItem.style.border = '1px solid gray';
         } else {
             gridItem.style.border = 'medium none';
         };
@@ -166,7 +169,7 @@ fillBtn.addEventListener('click', () => {
     if (fillFunction === 'off') {
         fillFunction = 'on';
         eraserFunction = 'off';
-        eraserBtn.style.backgroundColor = 'transparent';
+        eraserBtn.classList.remove('active');
     } else {
         fillFunction = 'off';
     };
@@ -180,7 +183,7 @@ function fillGrid() {
     };
 
     fillFunction = 'off';
-    fillBtn.style.backgroundColor = 'transparent';
+    fillBtn.classList.remove('active');
 };
 
 // Clear
@@ -189,13 +192,13 @@ clearBtn.addEventListener('click', () => {
     for (let i = 0; i <= sizeRange.value ** 2 - 1; i++) {
         grid.children[i].style.backgroundColor = 'rgb(255, 255, 255)';
     }
-    clearBtn.style.backgroundColor = 'transparent';
+    clearBtn.classList.remove('active');
 
     fillFunction = 'off';
     eraserFunction = 'off';
 
-    fillBtn.style.backgroundColor = 'transparent';
-    eraserBtn.style.backgroundColor = 'transparent';
+    fillBtn.classList.remove('active');
+    eraserBtn.classList.remove('active');
 });
 
 // Grid lines
@@ -203,7 +206,7 @@ clearBtn.addEventListener('click', () => {
 gridLines.addEventListener('click', () => {
     for (let i = 0; i <= sizeRange.value ** 2 - 1; i++) {
         if (grid.children[i].style.border === 'medium none') {
-            grid.children[i].style.border = '1px solid black';
+            grid.children[i].style.border = '1px solid gray';
             lines = 'on';
         } else {
             grid.children[i].style.border = 'medium none';
@@ -211,4 +214,3 @@ gridLines.addEventListener('click', () => {
         };
     };
 });
-

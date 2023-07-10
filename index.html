@@ -17,7 +17,7 @@
 
         <div class="options">
             <div class="size">
-                <button id="size"><img src="Style/Images/grid-size.png"
+                <button class="option-btn" id="size"><img src="Style/Images/grid-size.png"
                         alt="Change grid size" title="Grid size"></button>
                 <div class="size-menu">
                     <p>Size</p>
@@ -28,20 +28,25 @@
                 </div>
             </div>
 
-            <button id="grid-lines"><img src="Style/Images/grid-lines.png"
+            <button class="option-btn" id="grid-lines"><img src="Style/Images/grid-lines.png"
                     alt="Toggle grid lines" title="Toggle grid lines"></button>
             <input type="color" name="color-picker" id="color-picker">
-            <button id="eraser"><img src="Style/Images/eraser.png" alt="Eraser"
+            <button class="option-btn" id="eraser"><img src="Style/Images/eraser.png" alt="Eraser"
                     title="Eraser"></button>
-            <button id="fill-color"><img src="Style/Images/fill-color.png"
+            <button class="option-btn" id="fill-color"><img src="Style/Images/fill-color.png"
                     alt="Fill color" title="Fill color"></button>
-            <button id="clear"><img src="Style/Images/clear.png" alt="Clear"
+            <button class="option-btn" id="clear"><img src="Style/Images/clear.png" alt="Clear"
                     title="Clear"></button>
-            <button id="modes"><img src="Style/Images/modes.png" alt="Modes"
+            <button class="option-btn" id="modes"><img src="Style/Images/modes.png" alt="Modes"
                     title="Modes"></button>
 
             <div class="mode-menu">
                 <p>Modes</p>
+                <div>
+                    <input type="radio" name="modes" id="default" value="default">
+                    <label for="default">Default</label>
+                </div>
+
                 <div>
                     <input type="radio" name="modes" id="dark" value="dark">
                     <label for="dark">Darkening</label>
@@ -61,7 +66,7 @@
     </header>
 
     <main>
-        <div class="grid"></div>
+        <div class="grid" draggable="false"></div>
     </main>
 </body>
 
