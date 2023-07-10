@@ -1,8 +1,9 @@
-const html = document.querySelector('html');
 const header = document.querySelector('header');
 const sizeBtn = document.querySelector('#size');
 const sizeMenu = document.querySelector('.size-menu');
 const sizeRange = document.querySelector('#size-range');
+
+const colorPicker = document.querySelector('#color-picker');
 
 const eraserBtn = document.querySelector('#eraser');
 const fillBtn = document.querySelector('#fill-color');
@@ -71,7 +72,7 @@ function createGridItems() {
         let flexBasisValue = (Math.trunc((10 / sizeRange.value) * 1000)) / 100 + '%';
 
         gridItem.classList.add('gridItem');
-        gridItem.style.backgroundColor = 'white';
+        gridItem.style.backgroundColor = 'rgb(255, 255, 255)';
         gridItem.style.flexBasis = flexBasisValue;
 
         if (lines === 'on') {
@@ -120,7 +121,7 @@ function changeColor(e) {
         return;
     }
     else if (eraserFunction === 'on') {
-        e.target.style.backgroundColor = 'white';
+        e.target.style.backgroundColor = 'rgb(255, 255, 255)';
     }
     else if (fillFunction === 'on') {
         fillGrid();
@@ -145,7 +146,7 @@ function changeColor(e) {
         e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     }
     else {
-        e.target.style.backgroundColor = 'black';
+        e.target.style.backgroundColor = colorPicker.value;
     };
 };
 
@@ -173,9 +174,8 @@ fillBtn.addEventListener('click', () => {
 
 function fillGrid() {
     for (let i = 0; i <= sizeRange.value ** 2 - 1; i++) {
-        if (grid.children[i].style.backgroundColor !== 'white') {
-        } else {
-            grid.children[i].style.backgroundColor = 'var(--secondary-color)';
+        if (grid.children[i].style.backgroundColor === 'rgb(255, 255, 255)') {
+            grid.children[i].style.backgroundColor = colorPicker.value;
         };
     };
 
@@ -187,7 +187,7 @@ function fillGrid() {
 
 clearBtn.addEventListener('click', () => {
     for (let i = 0; i <= sizeRange.value ** 2 - 1; i++) {
-        grid.children[i].style.backgroundColor = 'white';
+        grid.children[i].style.backgroundColor = 'rgb(255, 255, 255)';
     }
     clearBtn.style.backgroundColor = 'transparent';
 
@@ -211,3 +211,4 @@ gridLines.addEventListener('click', () => {
         };
     };
 });
+

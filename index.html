@@ -29,7 +29,8 @@
             </div>
 
             <button id="grid-lines"><img src="Style/Images/grid-lines.png"
-                    alt="Toggle grid lines"></button>
+                    alt="Toggle grid lines" title="Toggle grid lines"></button>
+            <input type="color" name="color-picker" id="color-picker">
             <button id="eraser"><img src="Style/Images/eraser.png" alt="Eraser"
                     title="Eraser"></button>
             <button id="fill-color"><img src="Style/Images/fill-color.png"
@@ -45,7 +46,7 @@
                     <input type="radio" name="modes" id="dark" value="dark">
                     <label for="dark">Darkening</label>
                     <span class="info"
-                        title="Colors start light and get darker as you hover them again.">i</span>
+                        title="The color starts off light and darkens when you interact again.">i</span>
                 </div>
 
                 <div>
@@ -53,7 +54,7 @@
                         value="rainbow">
                     <label for="rainbow">Rainbow</label>
                     <span class="info"
-                        title="Use a random combination of colors!">i</span>
+                        title="Use a random color combination!">i</span>
                 </div>
             </div>
         </div>
@@ -62,20 +63,6 @@
     <main>
         <div class="grid"></div>
     </main>
-
-    <div class="alert">
-        <p class="alert-message"></p>
-        <img src="" alt="Alert symbol">
-        <div class="alert-btns">
-            <button>Yes</button>
-            <button>No</button>
-        </div>
-        <div class="check">
-            <input type="checkbox" name="dont-ask" id="dont-ask"
-                value="dont-ask">
-            <label for="dont-ask">Do not ask again.</label>
-        </div>
-    </div>
 </body>
 
 <script src="script.js"></script>
