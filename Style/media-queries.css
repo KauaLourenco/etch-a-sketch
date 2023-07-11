@@ -1,0 +1,73 @@
+/* Tablets and computers (Portrait) */
+/* Fix header gaps and button sizes */
+
+@media (min-width: 800px) and (orientation: portrait) {
+    .options {
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .option-btn img {
+        width: 4rem;
+    }
+}
+
+/* All devices (Landscape) */
+/* Fix header orientation, grid position and menus 
+dimensions */
+
+@media (min-width: 500px) and (orientation: landscape) {
+    body {
+        display: flex;
+    }
+
+    header {
+        width: 30%;
+        padding: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .options {
+        height: 62%;
+        margin-top: 2rem;
+
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: space-around;
+        overflow: scroll;
+    }
+    .option-btn img {
+        width: 4rem;
+    }
+
+    .size-menu,
+    .mode-menu {
+        padding: 4rem 8rem;
+        flex-direction: row;
+        gap: 3rem;
+    }
+    .size-menu p,
+    .mode-menu p {
+        width: auto;
+        margin-right: auto;
+        font-size: 2.4rem;
+    }
+
+    #size-range {
+        width: 50%;
+    }
+
+    #clear {
+        position: absolute;
+        top: 50%;
+        right: 3%;
+        transform: translateY(-50%);
+
+        background-color: var(--header-color);
+    }
+
+    main {
+        justify-content: center;
+    }
+}
